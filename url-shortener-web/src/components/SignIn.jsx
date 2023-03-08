@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 
-import ContentCutRoundedIcon from '@mui/icons-material/ContentCutRounded';
+import ContentCutRoundedIcon from "@mui/icons-material/ContentCutRounded";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -40,7 +40,7 @@ export default function SignIn() {
                     // console.log(error);
                     toast.error(err.response.data.message, {
                         position: "top-center",
-                        autoClose: 5000,
+                        autoClose: 4000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -112,14 +112,13 @@ export default function SignIn() {
                     {shortUrl.length > 0 && (
                         <Box
                             sx={{
-                                boxShadow: 12,
+                                boxShadow: 8,
                                 color: "cadetblue",
-                                padding: 6,
+                                padding: 2,
                             }}
                         >
                             <Typography
-                                sx={{ mt: 2 }}
-                                component="h1"
+                                component="h2"
                                 variant="h5"
                                 color="light-blue"
                             >
