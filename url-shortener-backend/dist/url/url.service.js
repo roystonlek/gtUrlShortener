@@ -18,15 +18,25 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const Url_1 = require("../typeorm/entities/Url");
 const short_unique_id_1 = require("short-unique-id");
-const valid_url_1 = require("valid-url");
 const _BASE_URL = 'http://localhost:3000/';
+function isValidUrl(url) {
+    try {
+        return Boolean(new URL(url));
+    }
+    catch (e) {
+        return false;
+    }
+}
 let UrlService = class UrlService {
     constructor(urlRepository) {
         this.urlRepository = urlRepository;
     }
     async createUrl(urlDetails) {
-        if (urlDetails.longUrl.length == 0 && !valid_url_1.default.isUri(urlDetails.longUrl)) {
+        if (urlDetails.longUrl.length == 0) {
             throw new common_1.BadRequestException('Please Enter a Url ');
+        }
+        else if (!isValidUrl(urlDetails.longUrl)) {
+            throw new common_1.BadRequestException('Please Enter a Valid Url ');
         }
         const uid = new short_unique_id_1.default({ length: 6 });
         let shortUrl = uid();
