@@ -3,13 +3,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+
+import ContentCutRoundedIcon from '@mui/icons-material/ContentCutRounded';
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme();
 
@@ -33,8 +35,19 @@ export default function SignIn() {
             })
             .catch((err) => {
                 if (err.response && err.response.status == 400) {
+                    setShortUrl("");
                     setError(err.response.data.message);
-                    console.log(error);
+                    // console.log(error);
+                    toast.error(err.response.data.message, {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 }
             });
     };
@@ -44,6 +57,18 @@ export default function SignIn() {
 
     return (
         <ThemeProvider theme={theme}>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -55,7 +80,7 @@ export default function SignIn() {
                     }}
                 >
                     <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                        <LockOutlinedIcon />
+                        <ContentCutRoundedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Your URL Shortener
@@ -84,29 +109,24 @@ export default function SignIn() {
                             Shorten Your URL !
                         </Button>
                     </Box>
-                    <Box>
-                        {shortUrl.length > 0 && (
+                    {shortUrl.length > 0 && (
+                        <Box
+                            sx={{
+                                boxShadow: 12,
+                                color: "cadetblue",
+                                padding: 6,
+                            }}
+                        >
                             <Typography
                                 sx={{ mt: 2 }}
                                 component="h1"
                                 variant="h5"
+                                color="light-blue"
                             >
                                 Your Shortened Url : {shortUrl}
                             </Typography>
-                        )}
-                    </Box>
-                    <Box>
-                        {error.length > 0 && (
-                            <Typography
-                                sx={{ mt: 2 }}
-                                component="h2"
-                                variant="h5"
-                                color={"red"}
-                            >
-                                Error Message : {error}
-                            </Typography>
-                        )}
-                    </Box>
+                        </Box>
+                    )}
                 </Box>
             </Container>
         </ThemeProvider>
