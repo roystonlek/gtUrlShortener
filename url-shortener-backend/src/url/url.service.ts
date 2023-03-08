@@ -9,7 +9,10 @@ import { Repository } from 'typeorm';
 import { Url } from '../typeorm/entities/Url';
 import ShortUniqueId from 'short-unique-id';
 
-const _BASE_URL = 'http://localhost:3000/';
+// Localhost
+// const _BASE_URL = 'http://localhost:3000/';
+// planetscale
+const _BASE_URL = 'https://gt-url-shortener-hkz5.vercel.app/';
 
 function isValidUrl(url: string) {
   try {

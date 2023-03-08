@@ -13,6 +13,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const _BASE_URL = "https://gt-url-shortener-hkz5.vercel.app"
+
 const theme = createTheme();
 
 export default function SignIn() {
@@ -27,7 +29,7 @@ export default function SignIn() {
         });
         const url = data.get("url");
         axios
-            .post("http://localhost:3000", { longUrl: url })
+            .post(`${_BASE_URL}:3000`, { longUrl: url })
             .then((res) => {
                 console.log(res.data);
                 setError("");
