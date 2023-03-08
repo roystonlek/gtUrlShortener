@@ -1,6 +1,7 @@
 version: "3.8"
 services:
     backend:
+        image: royston21/short-url-backend:latest
         build:
             dockerfile: Dockerfile
             context: ./url-shortener-backend
@@ -15,6 +16,7 @@ services:
             - /usr/src/backend
             - /usr/src/backend/node_modules
     web:
+        image: royston21/short-url-web:latest
         build:
             dockerfile: Dockerfile
             context: ./url-shortener-web

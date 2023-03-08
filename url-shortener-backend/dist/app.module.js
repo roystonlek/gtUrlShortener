@@ -20,13 +20,14 @@ AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mysql',
-                host: 'localhost',
+                host: 'ap-southeast.connect.psdb.cloud',
                 port: 3306,
-                username: 'root',
-                password: 'root',
-                database: 'shortener',
+                username: 'yp6lp4txsxyvsswa03m3',
+                password: 'pscale_pw_tcUQbEkoPt5pJWJE03ssk0MzmOfA5f34GvmuwcEaYd9',
+                database: 'gt_url_shortener',
                 entities: [Url_1.Url],
                 synchronize: true,
+                ssl: { rejectUnauthorized: true },
             }),
             url_module_1.UrlModule,
         ],

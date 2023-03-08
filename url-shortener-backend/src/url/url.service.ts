@@ -34,7 +34,7 @@ export class UrlService {
       throw new BadRequestException('Please Enter a Valid Url ');
     }
 
-    // Generate a shortUrl Extension and check if it exists in the database
+    // Generate a shortUrl path and check if it exists in the database
     const uid = new ShortUniqueId({ length: 6 });
     let shortUrl = uid();
     let fullUrl = _BASE_URL + shortUrl;
