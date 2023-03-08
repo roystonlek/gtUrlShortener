@@ -1,1 +1,39 @@
 version: "3.8"
+services:
+    backend:
+        build:
+            dockerfile: Dockerfile
+            context: ./url-shortener-backend
+        depends_on:
+            - mysql
+        environment:
+            DATABASE_URL: mysql://root:root@mysql:3306/shortener
+            PORT: 3000
+        ports:
+            - "3000:3000"
+        volumes:
+            - /usr/src/backend
+            - /usr/src/backend/node_modules
+    web:
+        build:
+            dockerfile: Dockerfile
+            context: ./url-shortener-web
+        ports:
+            - "5173:5173"
+        volumes:
+            - /usr/src/web
+            - /usr/src/web/node_modules
+    mysql:
+        image: mysql:5.7
+        # ports:
+        #     - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: shortener
+        volumes:
+            - db-config:/etc/mysql
+            - db-data:/var/lib/mysql
+            - ./db/backup/files/:/data_backup/data
+volumes:
+    db-config:
+    db-data:

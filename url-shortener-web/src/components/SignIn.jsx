@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-
+import Link from "@mui/material/Link";
 import ContentCutRoundedIcon from "@mui/icons-material/ContentCutRounded";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -112,17 +112,18 @@ export default function SignIn() {
                     {shortUrl.length > 0 && (
                         <Box
                             sx={{
+                                borderRadius: "20px",
                                 boxShadow: 8,
-                                color: "cadetblue",
                                 padding: 2,
                             }}
                         >
                             <Typography
                                 component="h2"
                                 variant="h5"
-                                color="light-blue"
+                                color={"#83aef2"}
                             >
-                                Your Shortened Url : {shortUrl}
+                                Your Shortened Url :{" "}
+                                <Link href={shortUrl}>{shortUrl}</Link>
                             </Typography>
                         </Box>
                     )}

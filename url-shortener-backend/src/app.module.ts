@@ -8,7 +8,12 @@ import { UrlModule } from './url/url.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      // for local development
+      // host: 'localhost',
+      // for local machine with docker
+      // host: 'host.docker.internal',
+      // for docker internal
+      host: 'mysql',
       port: 3306,
       username: 'root',
       password: 'root',
