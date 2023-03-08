@@ -9,11 +9,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Get(':id')
-  getLongUrl(@Param(':id') shortUrl, @Res() res): any {
-    const longUrl = this.appService.getLongUrl(shortUrl);
-    res.header('Location', longUrl);
-    res.status(301).send();
-  }
 }
