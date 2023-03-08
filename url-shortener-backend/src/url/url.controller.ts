@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Res, Body } from '@nestjs/common';
 import { CreateUrlDto } from './dtos/CreateUrl.dto';
 import { UrlService } from './url.service';
+
 @Controller()
 export class UrlController {
   constructor(private readonly urlService: UrlService) {}
@@ -22,6 +23,7 @@ export class UrlController {
    */
   @Post()
   createUrl(@Body() url: CreateUrlDto) {
+    console.log('called here ');
     return this.urlService.createUrl(url);
   }
 }

@@ -1,4 +1,4 @@
+// one point of edit to receive the request body
 export class CreateUrlDto {
-  shortUrl: string;
   longUrl: string;
 }
