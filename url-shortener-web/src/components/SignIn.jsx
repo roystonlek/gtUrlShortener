@@ -30,6 +30,7 @@ export default function SignIn() {
         const url = data.get("url");
         axios
             .post(`${_BASE_URL}`, { longUrl: url })
+            // .post(`http://localhost:3000`, { longUrl: url })
             .then((res) => {
                 console.log(res.data);
                 setError("");
