@@ -2,6 +2,8 @@
 <hr/>
 <img width="1309" alt="Screenshot 2023-03-09 at 4 26 40 PM" src="https://user-images.githubusercontent.com/79073540/223963934-87ea644a-36e7-412c-8824-ef0abcbfeb27.png">
 
+(Please include http:// or https:// in your long url)
+
 Project has been deployed on vercel(frontend, backend applicaton) and planetscale(database for persistence)
 <br/>
 View it on : https://gt-url-shortener-frontend.vercel.app
