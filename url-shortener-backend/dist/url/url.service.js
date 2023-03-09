@@ -18,7 +18,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const Url_1 = require("../typeorm/entities/Url");
 const short_unique_id_1 = require("short-unique-id");
-const _BASE_URL = 'http://localhost:3000/';
+const _BASE_URL = 'https://gt-url-shortener-hkz5.vercel.app/';
 function isValidUrl(url) {
     try {
         return Boolean(new URL(url));

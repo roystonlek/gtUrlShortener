@@ -26,7 +26,6 @@ let UrlController = class UrlController {
         res.status(301).send();
     }
     createUrl(url) {
-        console.log('called here ');
         return this.urlService.createUrl(url);
     }
 };
