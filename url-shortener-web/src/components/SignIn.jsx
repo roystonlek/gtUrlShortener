@@ -13,8 +13,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// const _BASE_URL = "https://gt-url-shortener-hkz5.vercel.app"
-const _BASE_URL = "http://localhost:3000/"
+const _BASE_URL = "https://gt-url-shortener-hkz5.vercel.app"
+// const _BASE_URL = "http://localhost:3000/"
 
 const theme = createTheme();
 
