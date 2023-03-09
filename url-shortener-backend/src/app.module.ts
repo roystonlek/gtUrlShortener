@@ -4,15 +4,24 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Url } from './typeorm/entities/Url';
 import { UrlModule } from './url/url.module';
+import { UrlControllerController } from './url_controller/url_controller.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      // type: 'mysql',
       // // for local development
+      // type: 'mysql',
       // // host: 'localhost',
       // // for local machine with docker
       // // host: 'host.docker.internal',
-      // // for docker internal
+      // port: 3306,
+      // username: 'root',
+      // password: 'root',
+      // database: 'shortener',
+      // entities: [Url],
+      // synchronize: true,
+
+      // using docker compose
+      // type: 'mysql',
       // host: 'mysql',
       // port: 3306,
       // username: 'root',
@@ -31,11 +40,10 @@ import { UrlModule } from './url/url.module';
       entities: [Url],
       synchronize: true,
       ssl: { rejectUnauthorized: true },
-      // DATABASE_URL='mysql://yp6lp4txsxyvsswa03m3:pscale_pw_tcUQbEkoPt5pJWJE03ssk0MzmOfA5f34GvmuwcEaYd9@ap-southeast.connect.psdb.cloud/gt_url_shortener?ssl={"rejectUnauthorized":true}'
     }),
     UrlModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, UrlControllerController],
   providers: [AppService],
 })
 export class AppModule {}

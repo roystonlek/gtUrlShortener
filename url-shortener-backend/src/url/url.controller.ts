@@ -23,7 +23,6 @@ export class UrlController {
    */
   @Post()
   createUrl(@Body() url: CreateUrlDto) {
-    console.log('called here ');
     return this.urlService.createUrl(url);
   }
 }
