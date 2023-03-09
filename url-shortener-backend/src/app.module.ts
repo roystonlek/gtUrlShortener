@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Url } from './typeorm/entities/Url';
 import { UrlModule } from './url/url.module';
-import { UrlControllerController } from './url_controller/url_controller.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -43,7 +42,7 @@ import { UrlControllerController } from './url_controller/url_controller.control
     }),
     UrlModule,
   ],
-  controllers: [AppController, UrlControllerController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

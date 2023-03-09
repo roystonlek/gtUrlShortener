@@ -13,7 +13,6 @@ const app_service_1 = require("./app.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const Url_1 = require("./typeorm/entities/Url");
 const url_module_1 = require("./url/url.module");
-const url_controller_controller_1 = require("./url_controller/url_controller.controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,7 +31,7 @@ AppModule = __decorate([
             }),
             url_module_1.UrlModule,
         ],
-        controllers: [app_controller_1.AppController, url_controller_controller_1.UrlControllerController],
+        controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);
